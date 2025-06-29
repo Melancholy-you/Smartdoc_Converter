@@ -1,0 +1,87 @@
+% ===============================================================
+% 最终稳定版模板：已移除所有与 listings 宏包相关的代码
+% ===============================================================
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage{ctex}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{tabularx}
+
+% ------ 字体设置 ------
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% ------ Pandoc 兼容性修正 ------
+% 这些是确保 Pandoc 能和你的模板正常工作的关键
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ------ 其它设置 ------
+\definecolor{mycolor}{rgb}{0.5, 0.5, 0.5}
+\newcommand{\graytext}[1]{{\color{mycolor}#1}}
+
+\title{\vspace{-2cm}}
+\author{}
+\date{}
+
+\geometry{
+    a4paper,
+    left=1.27cm,
+    right=1.27cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    headheight=23pt,
+    headsep=0.5cm,
+}
+
+\fancypagestyle{firstpage}{
+    \fancyhf{}
+    \fancyhead[C]{\textcolor{red}{\Huge Personal System}}
+    \fancyhead[R]{\today}
+    \fancyhead[L]{Huaixin}
+    \fancyfoot[C]{\thepage}
+    \setlength{\footskip}{1cm}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Personal System}
+\fancyhead[R]{Huaixin}
+\fancyfoot[C]{\thepage}
+\setlength{\footskip}{1cm}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\titlespacing*{\section}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{*0}{*0}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\paragraph}{0pt}{*0}{*0}
+
+\begin{document}
+
+\begin{center}
+    \fontsize{25pt}{30pt}\selectfont  Reconstructing Your Personal System\\
+    \fontsize{20pt}{25pt}\selectfont  重构您的个人系统\textbar \\
+    \fontsize{12pt}{15pt}\selectfont A Deep Dive into Personal Effectiveness\\
+    \fontsize{12pt}{15pt}\selectfont\textcolor{gray}{一份综合性效能提升报告}
+\end{center}
+
+\begin{multicols}{2}
+    \thispagestyle{firstpage}
+    \onehalfspacing
+
+    $body$
+
+\end{multicols}
+
+\end{document}

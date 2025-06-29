@@ -1,0 +1,124 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{graphicx}
+% ===============================================================
+%  !!!!!!!!!            最终字体修正             !!!!!!!!!
+% ===============================================================
+% 明确为 ctex 指定一个 macOS 自带的、可靠的中文字体
+\usepackage[fontset=macnew]{ctex}
+% ===============================================================
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{setspace}
+\usepackage{tabularx}
+
+% ------ 字体设置 ------
+% 对于英文部分，我们依然使用之前的设置
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
+\setmonofont{Courier New}
+
+% ------ Pandoc 兼容性修正 ------
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% ------ 其它设置 ------
+\definecolor{mycolor}{rgb}{0.5, 0.5, 0.5}
+\newcommand{\graytext}[1]{{\color{mycolor}#1}}
+
+\title{\vspace{-2cm}}
+\author{}
+\date{}
+
+\geometry{
+    a4paper,
+    left=1.27cm,
+    right=1.27cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    headheight=23pt,
+    headsep=0.5cm,
+}
+
+\fancypagestyle{firstpage}{
+    \fancyhf{}
+    \fancyhead[C]{\textcolor{red}{\Huge Personal System}}
+    \fancyhead[R]{\today}
+    \fancyhead[L]{Huaixin}
+    \fancyfoot[C]{\thepage}
+    \setlength{\footskip}{1cm}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{Personal System}
+\fancyhead[R]{Huaixin}
+\fancyfoot[C]{\thepage}
+\setlength{\footskip}{1cm}
+
+\setlength{\parskip}{1em}
+\setlength{\parindent}{0em}
+
+\titlespacing*{\section}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{*0}{*0}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\paragraph}{0pt}{*0}{*0}
+
+\begin{document}
+
+\begin{center}
+    \fontsize{25pt}{30pt}\selectfont  Reconstructing Your Personal System\\
+    \fontsize{20pt}{25pt}\selectfont  重构您的个人系统\textbar \\
+    \fontsize{12pt}{15pt}\selectfont A Deep Dive into Personal Effectiveness\\
+    \fontsize{12pt}{15pt}\selectfont\textcolor{gray}{一份综合性效能提升报告}
+\end{center}
+
+\begin{multicols}{2}
+    \thispagestyle{firstpage}
+    \onehalfspacing
+
+    III PDF IIIIIIII
+
+\end{multicols}
+
+\end{document}
+
+
+
+% 现在定义 listings 样式，避免加载顺序问题
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{center}
+    \fontsize{25pt}{30pt}\selectfont  Reconstructing Your Personal System\\
+    \fontsize{20pt}{25pt}\selectfont  重构您的个人系统\textbar \\
+    \fontsize{12pt}{15pt}\selectfont A Deep Dive into Personal Effectiveness\\
+    \fontsize{12pt}{15pt}\selectfont\textcolor{gray}{一份综合性效能提升报告}
+\end{center}

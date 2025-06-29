@@ -3,7 +3,12 @@
 \usepackage{geometry}
 \usepackage{multicol}
 \usepackage{graphicx}
-\usepackage{ctex} % 中文支持
+% ===============================================================
+%  !!!!!!!!!            最终字体修正             !!!!!!!!!
+% ===============================================================
+% 明确为 ctex 指定一个 macOS 自带的、可靠的中文字体
+\usepackage[fontset=macnew]{ctex}
+% ===============================================================
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{enumitem}
@@ -11,38 +16,25 @@
 \usepackage{titlesec}
 \usepackage{setspace}
 \usepackage{tabularx}
-% \usepackage{unicode-math} % 暂时禁用，以解决“找不到字体”的错误
 
-% ------ 字体设置开始 (最终极简版) ------
-% 确保您正在使用 XeLaTeX 编译器
-
-% 1. 中文字体: 我们完全不进行任何设置。
-% ctex 宏包会自动检测到您的 macOS 并为您选择默认的宋体 (STSong)，这已满足要求。
-
-% 2. 英文字体: 只设置英文部分。
+% ------ 字体设置 ------
+% 对于英文部分，我们依然使用之前的设置
 \setmainfont{Times New Roman}
 \setsansfont{Arial}
 \setmonofont{Courier New}
 
-% 3. 数学字体: 暂时禁用，以保证编译通过。
-% \setmathfont{Latin Modern Math}
+% ------ Pandoc 兼容性修正 ------
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
-% ------ 字体设置结束 ------
-
-
-% 定义灰色
+% ------ 其它设置 ------
 \definecolor{mycolor}{rgb}{0.5, 0.5, 0.5}
-
-% 设置中文字体颜色为自定义颜色
 \newcommand{\graytext}[1]{{\color{mycolor}#1}}
 
-% 去除默认的标题间距
 \title{\vspace{-2cm}}
 \author{}
 \date{}
 
-
-% 页面边距设置 (保持修正)
 \geometry{
     a4paper,
     left=1.27cm,
@@ -53,7 +45,6 @@
     headsep=0.5cm,
 }
 
-% 定义第一页的页眉
 \fancypagestyle{firstpage}{
     \fancyhf{}
     \fancyhead[C]{\textcolor{red}{\Huge Personal System}}
@@ -63,7 +54,6 @@
     \setlength{\footskip}{1cm}
 }
 
-% 页眉页脚设置
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{Personal System}
@@ -71,25 +61,16 @@
 \fancyfoot[C]{\thepage}
 \setlength{\footskip}{1cm}
 
-
-% 自定义段落间距
 \setlength{\parskip}{1em}
 \setlength{\parindent}{0em}
 
-% 自定义标题间距
-\titlespacing*{\section}
-{0pt}{*0}{*0}
-\titlespacing*{\subsection}
-{0pt}{*0}{*0}
-\titlespacing*{\subsubsection}
-{0pt}{*0}{*0}
-\titlespacing*{\paragraph}
-{0pt}{*0}{*0}
-
+\titlespacing*{\section}{0pt}{*0}{*0}
+\titlespacing*{\subsection}{0pt}{*0}{*0}
+\titlespacing*{\subsubsection}{0pt}{*0}{*0}
+\titlespacing*{\paragraph}{0pt}{*0}{*0}
 
 \begin{document}
 
-%手动编辑标题
 \begin{center}
     \fontsize{25pt}{30pt}\selectfont  Reconstructing Your Personal System\\
     \fontsize{20pt}{25pt}\selectfont  重构您的个人系统\textbar \\
@@ -97,23 +78,47 @@
     \fontsize{12pt}{15pt}\selectfont\textcolor{gray}{一份综合性效能提升报告}
 \end{center}
 
-
-
-
-
-% 正文部分 两栏显示
 \begin{multicols}{2}
-    \thispagestyle{firstpage} % 设置第一页的页眉页脚
-    \onehalfspacing % 设置为一倍半行距
+    \thispagestyle{firstpage}
+    \onehalfspacing
 
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
-    % 您提供的报告内容已填入下方
-    %%%%%%%%%%%%%%%%%%%%%%%%%%%
+    $body$
 
-\section*{I. 引言：个人系统重构蓝图}
-
-
-\end{enumerate}
-
+\end{multicols}
 
 \end{document}
+
+
+
+% 现在定义 listings 样式，避免加载顺序问题
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{center}
+    \fontsize{25pt}{30pt}\selectfont  Reconstructing Your Personal System\\
+    \fontsize{20pt}{25pt}\selectfont  重构您的个人系统\textbar \\
+    \fontsize{12pt}{15pt}\selectfont A Deep Dive into Personal Effectiveness\\
+    \fontsize{12pt}{15pt}\selectfont\textcolor{gray}{一份综合性效能提升报告}
+\end{center}

@@ -1,0 +1,32 @@
+{
+    // You might have other settings here. Make sure this is inside the main {}.
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "latexmk (xelatex)",
+            "tools": [
+                "latexmk_xelatex"
+            ]
+        }
+    ],
+    "latex-workshop.latex.recipe.default": "latexmk (xelatex)",
+
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk_xelatex",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex", // This is the magic flag that tells latexmk to use XeLaTeX
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ]
+        }
+    ],
+
+    // This ensures VS Code can find your latexmk command.
+    "latex-workshop.latex.search.paths": [
+        "/Library/TeX/texbin"
+    ]
+}
